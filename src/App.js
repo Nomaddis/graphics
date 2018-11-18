@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import dropdown1 from "./components/DropdownMenu/dropdownMenu1";
+import dropdown2 from "./components/DropdownMenu/dropdownMenu2";
+import Publishing from "./components/Publishing/Publishing";
+
+import Highcharts from 'highcharts';
+import {
+  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Subtitle, Legend, LineSeries
+} from 'react-jsx-highcharts';
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header/>
+
+        <Route exact path="/" component={dropdown1} />
+        <Route path="/about" component={dropdown2} />
+        <Route path="/publishing" component={Publishing} />
+        <Footer/>
       </div>
     );
   }
 }
 
-export default App;
+
+function About() {
+  return (
+    <div>
+      <h2>About</h2>
+    </div>
+  );
+}
+
+export default withHighcharts (App, Highcharts);
