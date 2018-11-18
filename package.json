@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "highcharts": "^6.0.0",
     "mgr-pdf-viewer-react": "^1.0.1",
     "prop-types": "^15.6.2",

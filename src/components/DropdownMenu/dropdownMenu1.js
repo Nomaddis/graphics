@@ -65,24 +65,33 @@ const data = [
 ];
 
 const data2 = [
-  {name: 'Page A', y1: 4000, y2: 2400, amt: 2400},
-  {name: 'Page B', y1: 3000, y2: 1398, amt: 2210},
-  {name: 'Page C', y1: 2000, y2: 9800, amt: 2290},
-  {name: 'Page D', y1: 2780, y2: 3908, amt: 2000},
-  {name: 'Page E', y1: 1890, y2: 4800, amt: 2181},
-  {name: 'Page F', y1: 2390, y2: 3800, amt: 2500},
-  {name: 'Page G', y1: 3490, y2: 4300, amt: 2100},
+  {name: 'Page A', y1: 4000, y2: 2400},
+  {name: 'Page B', y1: 3000, y2: 1398},
+  {name: 'Page C', y1: 2000, y2: 9800},
+  {name: 'Page D', y1: 2780, y2: 3908},
+  {name: 'Page E', y1: 1890, y2: 4800},
+  {name: 'Page F', y1: 2390, y2: 3800},
+  {name: 'Page G', y1: 3490, y2: 4300},
 ];
 
 class dropdownMenu1 extends Component {
   state = {
     numPages: null,
     pageNumber: 1,
-  }
+    data: data,
+  };
 
   onDocumentLoad = ({ numPages }) => {
     this.setState({ numPages });
-  }
+  };
+
+  dropdownHandler = (event) => {
+    if(event === '1') {
+      this.setState({data : data2});
+    } else if(event === '2') {
+      this.setState({data : data});
+    }
+  };
 
   render() {
     const { pageNumber, numPages } = this.state;
@@ -95,7 +104,7 @@ class dropdownMenu1 extends Component {
         <div className='col-md-7'>
           <div className='graphic-container'>
             <h3 style={{textAlign: 'center'}}>Graphic title</h3>
-            <LineChart width={600} height={300} data={data}
+            <LineChart width={600} height={300} data={this.state.data}
                        margin={{top: 5, right: 30, left: 20, bottom: 5}}>
               <XAxis dataKey="name"/>
               <YAxis/>
@@ -110,7 +119,7 @@ class dropdownMenu1 extends Component {
 
         </div>
         <div className='col-md-5'>
-          <DropdownButton title="change parameter" id="bg-nested-dropdown">
+          <DropdownButton title="change parameter" id="bg-nested-dropdown" onSelect={event => {this.dropdownHandler(event)}}>
             <MenuItem eventKey="1">param 1</MenuItem>
             <MenuItem eventKey="2">param 2</MenuItem>
           </DropdownButton>

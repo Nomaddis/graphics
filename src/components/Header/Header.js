@@ -20,7 +20,7 @@ class Header extends Component {
               <NavItem eventKey={1} href="/publishing">
                 List of publishing
               </NavItem>
-              <NavItem eventKey={2} href="#">
+              <NavItem eventKey={2} href="/about">
                 About
               </NavItem>
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
@@ -28,7 +28,7 @@ class Header extends Component {
                   <Link to="/">Simulation of communication parameters</Link>
                 </MenuItem>
                 <MenuItem eventKey={3.2}  componentClass='span' >
-                  <Link to="/about">simulation of other things</Link>
+                  <Link to="/experiment1">simulation of other things</Link>
                 </MenuItem>
                 <MenuItem eventKey={3.3}>Something else here</MenuItem>
                 <MenuItem divider />

@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import dropdown1 from "./components/DropdownMenu/dropdownMenu1";
 import dropdown2 from "./components/DropdownMenu/dropdownMenu2";
 import Publishing from "./components/Publishing/Publishing";
+import About from "./components/About/About";
 
 import Highcharts from 'highcharts';
 import {
@@ -20,21 +21,13 @@ class App extends Component {
         <Header/>
 
         <Route exact path="/" component={dropdown1} />
-        <Route path="/about" component={dropdown2} />
+        <Route path="/experiment1" component={dropdown2} />
+        <Route path="/about" component={About} />
         <Route path="/publishing" component={Publishing} />
         <Footer/>
       </div>
     );
   }
-}
-
-
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
 }
 
 export default withHighcharts (App, Highcharts);
