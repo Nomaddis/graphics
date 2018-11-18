@@ -2,11 +2,8 @@ import React, {Component} from 'react';
 
 import { BarChart, Bar, Brush, Cell, CartesianGrid, ReferenceLine, ReferenceDot,
   XAxis, YAxis, Tooltip, Legend, Line, LineChart } from 'recharts';
-import { Document, Page } from 'react-pdf'
 import {ButtonToolbar, DropdownButton, MenuItem, ToggleButton, ToggleButtonGroup} from "react-bootstrap";
-// import PdfPreview from "react-pdf-preview";
 
-import PDFViewer  from 'mgr-pdf-viewer-react'
 
 import PDFPreview from '../UI/PdfPreview/PdfPreview'
 

@@ -9,10 +9,10 @@ import About from "./components/About/About";
 
 import Highcharts from 'highcharts';
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Subtitle, Legend, LineSeries
+  withHighcharts
 } from 'react-jsx-highcharts';
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 class App extends Component {
   render() {

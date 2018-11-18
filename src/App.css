@@ -12,6 +12,10 @@
   line-height: 20px;
 }
 
+.nav li>a {
+  font-size: 18px;
+}
+
 /*pdf view block*/
 .pdf-view-title {
   text-align: center;
