@@ -19,11 +19,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-
-        <Route exact path="/" component={dropdown1} />
-        <Route path="/experiment1" component={dropdown2} />
-        <Route path="/about" component={About} />
-        <Route path="/publishing" component={Publishing} />
+        <div className='container'>
+          <Route exact path="/" component={dropdown1} />
+          <Route path="/experiment1" component={dropdown2} />
+          <Route path="/about" component={About} />
+          <Route path="/publishing" component={Publishing} />
+        </div>
         <Footer/>
       </div>
     );

@@ -96,7 +96,7 @@ class dropdownMenu1 extends Component {
     const pdfDesc = 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).';
 
     return (
-      <div className='container'>
+      <div>
         <h1 style={{textAlign: 'center'}}>Simulation of communication parameters</h1>
         <div className='col-md-7'>
           <div className='graphic-container'>
@@ -116,18 +116,22 @@ class dropdownMenu1 extends Component {
 
         </div>
         <div className='col-md-5'>
-          <DropdownButton title="change parameter" id="bg-nested-dropdown" onSelect={event => {this.dropdownHandler(event)}}>
-            <MenuItem eventKey="1">param 1</MenuItem>
-            <MenuItem eventKey="2">param 2</MenuItem>
-          </DropdownButton>
+          <div className='graphic-control'>
+            <div className='btn-wrapper'>
+              <DropdownButton title="change parameter" id="bg-nested-dropdown" onSelect={event => {this.dropdownHandler(event)}}>
+                <MenuItem eventKey="1">param 1</MenuItem>
+                <MenuItem eventKey="2">param 2</MenuItem>
+              </DropdownButton>
+            </div>
 
-          <ButtonToolbar>
-            <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-              <ToggleButton value={1}>toggle 1</ToggleButton>
-              <ToggleButton value={2}>toggle 2</ToggleButton>
-              <ToggleButton value={3} disabled>toggle 3</ToggleButton>
-            </ToggleButtonGroup>
-          </ButtonToolbar>
+            <ButtonToolbar>
+              <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                <ToggleButton value={1}>toggle 1</ToggleButton>
+                <ToggleButton value={2}>toggle 2</ToggleButton>
+                <ToggleButton value={3} disabled>toggle 3</ToggleButton>
+              </ToggleButtonGroup>
+            </ButtonToolbar>
+          </div>
         </div>
 
         {/*<PDFViewer document={{*/}

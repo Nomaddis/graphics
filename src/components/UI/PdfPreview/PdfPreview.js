@@ -5,11 +5,10 @@ import PDFViewer  from 'mgr-pdf-viewer-react'
 
 
 const pdfPreview = props => (
-  <div className='container'>
-    {/*<PDFViewer document={{*/}
+    <div>
+      {/*<PDFViewer document={{*/}
       {/*url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf'*/}
-    {/*}} />*/}
-    <div className='container'>
+      {/*}} />*/}
       <div className='pdf-view-wrapper'>
         <div className='col-md-12'>
           <h1 className='pdf-view-title'>{props.title}</h1>
@@ -18,7 +17,6 @@ const pdfPreview = props => (
         </div>
       </div>
     </div>
-  </div>
 );
 
 export default pdfPreview;

@@ -6,8 +6,7 @@ import './About.css';
 class About extends Component {
   render() {
     return (
-      <div className='container'>
-
+      <div>
         <div className='about-general'>
           <header className="page-header">
             <img className="logo" src="https://unsplash.it/300/300?image=354" alt="Street view on our office" />
