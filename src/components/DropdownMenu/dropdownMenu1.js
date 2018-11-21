@@ -143,7 +143,7 @@ class dropdownMenu1 extends Component {
           {/*<iframe src="somefile.pdf" width="100%" height="800" />*/}
         {/*</div>*/}
 
-        <PDFPreview title='Some pdf title' src='../../assets/' desc={pdfDesc}/>
+        <PDFPreview title='Some pdf title' src='./pdf-test.pdf' desc={pdfDesc}/>
 
       </div>
     );
