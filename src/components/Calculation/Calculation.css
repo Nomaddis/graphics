@@ -1,0 +1,16 @@
+.table-input {
+    border-radius: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    outline: none;
+    box-shadow: none;
+    transition: all 0.4s ease;
+}
+.table-input:focus {
+    box-shadow: none;
+    border-bottom-width: 2px;
+}
+.table-form-group {
+    margin-bottom: 0px;
+}

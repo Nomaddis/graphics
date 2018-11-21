@@ -195,9 +195,9 @@ class About extends Component {
           </address>
           <h2>Suivez-nous</h2>
           <p>
-            <a className="icon-link" href="#"><i className="icon fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-            <a className="icon-link" href="#"><i className="icon fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-            <a className="icon-link" href="#"><i className="icon fa fa-github-square fa-3x" aria-hidden="true"></i></a>
+            {/*<a className="icon-link" href="#"><i className="icon fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>*/}
+            {/*<a className="icon-link" href="#"><i className="icon fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>*/}
+            {/*<a className="icon-link" href="#"><i className="icon fa fa-github-square fa-3x" aria-hidden="true"></i></a>*/}
           </p>
         </section>
 

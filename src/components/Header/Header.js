@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import classes from './Header.css';
 import Navbar from "react-bootstrap/es/Navbar";
 import {MenuItem, Nav, NavDropdown, NavItem} from "react-bootstrap";
 import {Link} from "react-router-dom";
@@ -17,11 +16,8 @@ class Header extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="/publishing">
-                List of publishing
-              </NavItem>
-              <NavItem eventKey={2} href="/about">
-                About
+              <NavItem eventKey={1} href="/calculation">
+                Calculation
               </NavItem>
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                 <MenuItem eventKey={3.1}  componentClass='span' >
@@ -36,11 +32,11 @@ class Header extends Component {
               </NavDropdown>
             </Nav>
             <Nav pullRight>
-              <NavItem eventKey={1} href="#">
-                Link Right
+              <NavItem eventKey={1} href="/publishing">
+                List of publishing
               </NavItem>
-              <NavItem eventKey={2} href="#">
-                Link Right
+              <NavItem eventKey={2} href="/about">
+                About
               </NavItem>
             </Nav>
           </Navbar.Collapse>
