@@ -2,71 +2,90 @@ import React, {Component} from 'react';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import './Calculation.css';
 import {Button, FormControl, FormGroup, Table} from "react-bootstrap";
+import InputNumber from "rc-input-number";
+
+
 
 
 class Calculation extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.handleChangeLoss = this.handleChangeLoss.bind(this);
+    // this.handleChangeLoss = this.handleChangeLoss.bind(this);
 
     this.state = {
       value: '',
-      packageLoss: [],
       requirementsQoS: {
-        packageLoss: new Array(4),
-        delay: [],
-        jeter: [],
-        bandwidth: [],
-        probability: [],
+        packageLoss: Array(4).fill(''),
+        delay: Array(4).fill(''),
+        jeter: Array(4).fill(''),
+        bandwidth: Array(4).fill(''),
+        probability: Array(4).fill(''),
       },
       requirementsQoSCalculated: {
-        packageLoss: [],
-        delay: [],
-        jeter: [],
-        bandwidth: [],
-        probability: [],
+        packageLoss: Array(4).fill(''),
+        delay: Array(4).fill(''),
+        jeter: Array(4).fill(''),
+        bandwidth: Array(4).fill(''),
+        probability: Array(4).fill(''),
       },
     };
   }
 
 
+  handleChangeLoss = (val, rowNum, obj, arr) => {
 
-  // handleChangeLoss(e, rowNum) {
-  //   this.setState({value: e.target.value});
-  //   this.state.requirementsQoS.packageLoss[rowNum] = parseFloat(e.target.value);
-  //   console.log(`row number ${rowNum} value:`, this.state.requirementsQoS.packageLoss[rowNum]);
-  //   console.log(this.state.requirementsQoS.packageLoss);
-  // }
-
-
-  handleChangeLoss(e, rowNum) {
-    let value = parseFloat(e.target.value);
     this.setState(state => {
-      const newItems = [...state.requirementsQoS.packageLoss];
-      newItems[rowNum] = value;
+      // const newItems = [...state.requirementsQoS.packageLoss];
+      const newItems = [...obj];
+      newItems[rowNum] = val;
       let requirementsQoS = {...this.state.requirementsQoS};
-      requirementsQoS.packageLoss = newItems;
+      requirementsQoS[arr] = newItems;
       return {
         requirementsQoS,
       };
     });
-  }
+  };
 
-  getValidationState() {
-    const length = this.state.value.length;
-    if (length > 1) return 'success';
-    else if (length > 0) return 'warning';
-    else if (length > 0) return 'error';
-    return null;
-  }
+  // getValidationState = () => {
+  //   const length = this.state.value.length;
+  //   if (length > 1) return 'success';
+  //   else if (length > 0) return 'warning';
+  //   else if (length > 0) return 'error';
+  //   return null;
+  // };
 
-  calculateQoSRequirements() {
-    console.log(this.state);
-    // for(let o of this.state.requirementsQoS) {
-    //   console.log(o);
-    // }
-  }
+  calculateQoSRequirements = () => {
+    const requirementsQoSCalculated = {};
+
+    for (const key of Object.keys(this.state.requirementsQoS)) {
+      if(key === 'bandwidth') {
+        requirementsQoSCalculated[key] = this.calculateFOrColumnReverse(this.state.requirementsQoS[key]);
+      } else {
+        requirementsQoSCalculated[key] = this.calculateFOrColumn(this.state.requirementsQoS[key]);
+      }
+    }
+    // console.log(requirementsQoSCalculated);
+
+    this.setState({ requirementsQoSCalculated });
+
+  };
+
+  calculateFOrColumn = (arr) => {
+    let tempArr = [];
+    arr.forEach((item, i, arr) => {
+      tempArr.push((Math.min(...arr))/item);
+    });
+    return tempArr;
+  };
+
+  calculateFOrColumnReverse = (arr) => {
+    let tempArr = [];
+    arr.forEach((item, i, arr) => {
+      tempArr.push(item/(Math.max(...arr)));
+    });
+    return tempArr;
+  };
 
   render() {
 
@@ -93,21 +112,55 @@ class Calculation extends Component {
                 <td>
                   <FormGroup
                     controlId="formBasicText"
-                    validationState={this.getValidationState()}
+                    // validationState={this.getValidationState()}
                     className='table-form-group'
                   >
-                    <FormControl
-                      type="number"
-                      value={this.state.requirementsQoS.packageLoss[0] || ''}
-                      placeholder="Enter number"
-                      onChange={ event => {this.handleChangeLoss(event, 0)}}
-                      className='table-input'
+                    <InputNumber
+                      value={this.state.requirementsQoS.packageLoss[0]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 0, this.state.requirementsQoS.packageLoss, 'packageLoss')}}
                     />
                   </FormGroup>
                 </td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.delay[0]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 0, this.state.requirementsQoS.delay, 'delay')}}
+                    />
+                  </FormGroup>
+                </td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.jeter[0]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 0, this.state.requirementsQoS.jeter, 'jeter')}}
+                    />
+                  </FormGroup>
+                </td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.bandwidth[0]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 0, this.state.requirementsQoS.bandwidth, 'bandwidth')}}
+                    />
+                  </FormGroup>
+                </td>
                 <td>Table cell</td>
               </tr>
               <tr>
@@ -115,21 +168,55 @@ class Calculation extends Component {
                 <td>
                   <FormGroup
                     controlId="formBasicText"
-                    validationState={this.getValidationState()}
+                    // validationState={this.getValidationState()}
                     className='table-form-group'
                   >
-                    <FormControl
-                      type="number"
+                    <InputNumber
                       value={this.state.requirementsQoS.packageLoss[1]}
-                      placeholder="Enter number"
-                      onChange={ event => {this.handleChangeLoss(event, 1)}}
-                      className='table-input'
+                      style={{ width: 100 }}
+                      onChange={ value => {this.handleChangeLoss(value, 1, this.state.requirementsQoS.packageLoss, 'packageLoss')}}
                     />
                   </FormGroup>
                 </td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.delay[1]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 1, this.state.requirementsQoS.delay, 'delay')}}
+                    />
+                  </FormGroup>
+                </td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.jeter[1]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 1, this.state.requirementsQoS.jeter, 'jeter')}}
+                    />
+                  </FormGroup>
+                </td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.bandwidth[1]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 1, this.state.requirementsQoS.bandwidth, 'bandwidth')}}
+                    />
+                  </FormGroup>
+                </td>
                 <td>Table cell</td>
               </tr>
               <tr>
@@ -137,21 +224,55 @@ class Calculation extends Component {
                 <td>
                   <FormGroup
                     controlId="formBasicText"
-                    validationState={this.getValidationState()}
+                    // validationState={this.getValidationState()}
                     className='table-form-group'
                   >
-                    <FormControl
-                      type="number"
+                    <InputNumber
                       value={this.state.requirementsQoS.packageLoss[2]}
-                      placeholder="Enter number"
-                      onChange={ event => {this.handleChangeLoss(event, 2)}}
-                      className='table-input'
+                      style={{ width: 100 }}
+                      onChange={ value => {this.handleChangeLoss(value, 2, this.state.requirementsQoS.packageLoss, 'packageLoss')}}
                     />
                   </FormGroup>
                 </td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.delay[2]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 2, this.state.requirementsQoS.delay, 'delay')}}
+                    />
+                  </FormGroup>
+                </td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.jeter[2]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 2, this.state.requirementsQoS.jeter, 'jeter')}}
+                    />
+                  </FormGroup>
+                </td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.bandwidth[2]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 2, this.state.requirementsQoS.bandwidth, 'bandwidth')}}
+                    />
+                  </FormGroup>
+                </td>
                 <td>Table cell</td>
               </tr>
               <tr>
@@ -159,21 +280,55 @@ class Calculation extends Component {
                 <td>
                   <FormGroup
                     controlId="formBasicText"
-                    validationState={this.getValidationState()}
+                    // validationState={this.getValidationState()}
                     className='table-form-group'
                   >
-                    <FormControl
-                      type="number"
+                    <InputNumber
                       value={this.state.requirementsQoS.packageLoss[3]}
-                      placeholder="Enter number"
-                      onChange={ event => {this.handleChangeLoss(event, 3)}}
-                      className='table-input'
+                      style={{ width: 100 }}
+                      onChange={ value => {this.handleChangeLoss(value, 3, this.state.requirementsQoS.packageLoss, 'packageLoss')}}
                     />
                   </FormGroup>
                 </td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.delay[3]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 3, this.state.requirementsQoS.delay, 'delay')}}
+                    />
+                  </FormGroup>
+                </td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.jeter[3]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 3, this.state.requirementsQoS.jeter, 'jeter')}}
+                    />
+                  </FormGroup>
+                </td>
+                <td>
+                  <FormGroup
+                    controlId="formBasicText"
+                    // validationState={this.getValidationState()}
+                    className='table-form-group'
+                  >
+                    <InputNumber
+                      value={this.state.requirementsQoS.bandwidth[3]}
+                      style={styles.inputStyle}
+                      onChange={ value => {this.handleChangeLoss(value, 3, this.state.requirementsQoS.bandwidth, 'bandwidth')}}
+                    />
+                  </FormGroup>
+                </td>
                 <td>Table cell</td>
               </tr>
               </tbody>
@@ -199,31 +354,31 @@ class Calculation extends Component {
               <tbody>
               <tr>
                 <td>Голосові дані</td>
-                <td>{ this.state.requirementsQoS.packageLoss[0] }</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>{ this.state.requirementsQoSCalculated.packageLoss[0] }</td>
+                <td>{ this.state.requirementsQoSCalculated.delay[0] }</td>
+                <td>{ this.state.requirementsQoSCalculated.jeter[0] }</td>
+                <td>{ this.state.requirementsQoSCalculated.bandwidth[0] }</td>
               </tr>
               <tr>
                 <td>IPTV</td>
-                <td>{ this.state.requirementsQoS.packageLoss[1] }</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>{ this.state.requirementsQoSCalculated.packageLoss[1] }</td>
+                <td>{ this.state.requirementsQoSCalculated.delay[1] }</td>
+                <td>{ this.state.requirementsQoSCalculated.jeter[1] }</td>
+                <td>{ this.state.requirementsQoSCalculated.bandwidth[1] }</td>
               </tr>
               <tr>
                 <td>Інтернет дані</td>
-                <td>{ this.state.requirementsQoS.packageLoss[2] }</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>{ this.state.requirementsQoSCalculated.packageLoss[2] }</td>
+                <td>{ this.state.requirementsQoSCalculated.delay[2] }</td>
+                <td>{ this.state.requirementsQoSCalculated.jeter[2] }</td>
+                <td>{ this.state.requirementsQoSCalculated.bandwidth[2] }</td>
               </tr>
               <tr>
                 <td>Медіа за запитом</td>
-                <td>{ this.state.requirementsQoS.packageLoss[3] }</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>{ this.state.requirementsQoSCalculated.packageLoss[3] }</td>
+                <td>{ this.state.requirementsQoSCalculated.delay[3] }</td>
+                <td>{ this.state.requirementsQoSCalculated.jeter[3] }</td>
+                <td>{ this.state.requirementsQoSCalculated.bandwidth[3] }</td>
               </tr>
               </tbody>
             </Table>
@@ -233,5 +388,11 @@ class Calculation extends Component {
     )
   }
 }
+
+const styles = {
+  inputStyle: {
+    width: '100%'
+  }
+};
 
 export default Calculation;
