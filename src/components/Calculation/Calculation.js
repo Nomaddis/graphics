@@ -6,7 +6,6 @@ import InputNumber from "rc-input-number";
 
 
 
-
 class Calculation extends Component {
   constructor(props, context) {
     super(props, context);
@@ -16,18 +15,18 @@ class Calculation extends Component {
     this.state = {
       value: '',
       requirementsQoS: {
-        packageLoss: Array(4).fill(''),
+        packageLoss: new Array(4).fill(''),
         delay: Array(4).fill(''),
         jeter: Array(4).fill(''),
         bandwidth: Array(4).fill(''),
         probability: Array(4).fill(''),
       },
       requirementsQoSCalculated: {
-        packageLoss: Array(4).fill(''),
-        delay: Array(4).fill(''),
-        jeter: Array(4).fill(''),
-        bandwidth: Array(4).fill(''),
-        probability: Array(4).fill(''),
+        packageLoss: Array(4).fill(''),// p
+        delay: Array(4).fill(''),// t
+        jeter: Array(4).fill(''),// j
+        bandwidth: Array(4).fill(''),// c
+        probability: Array(4).fill(''),// Pвикор
       },
       Pp: null,
       Pt: null,
@@ -40,17 +39,65 @@ class Calculation extends Component {
         Bc: Array(4).fill(''),
       },
       priorityCalculated: {
-        relative: Array(4).fill(''),
-        absolute: Array(4).fill(''),
+        relative: [],
+        absolute: [],
       }
     };
   }
 
 
+
+  sortAbsolute = (arr) => {
+    let sorted = arr.map(function(item, index) {
+      return {index: index, item: item};
+    }).sort(function(item1, item2) {
+      return item1.item < item2.item ? -1 : item1.item > item2.item ? 1 : 0;
+    });
+
+    return sorted;
+  };
+
+  calculateAbsolutePriorities = (arr) => {
+    let absoluteArr = Array(4).fill(null);
+    let sortedArr = this.sortAbsolute(arr);
+    for(let i = 0; i<sortedArr.length; i++) {
+      absoluteArr[sortedArr[i].index] = i+1;
+    }
+    return absoluteArr;
+  };
+
+  calculatePrioritiesSum = () => {
+    let sum = 0;
+    // const { requirementsQoSCalculated, passwordColor, isLoad } = this.state;
+    for(let k = 0; k<this.state.priority.Bp.length; k++) {
+      sum = sum + (this.state.requirementsQoSCalculated.packageLoss[k]*this.state.priority.Bp[k]*this.state.Pp+
+        this.state.requirementsQoSCalculated.delay[k]*this.state.priority.Bt[k]*this.state.Pt+this.state.requirementsQoSCalculated.jeter[k]*
+        this.state.priority.Bj[k]*this.state.Pj+this.state.requirementsQoSCalculated.bandwidth[k]*this.state.priority.Bc[k]*
+        this.state.Pc)*this.state.requirementsQoSCalculated.probability[k]
+    }
+    return sum;
+  };
+
+  calculateRelativePriorities = () => {
+    let priorityCalculated = {
+      relative: [],
+      absolute: [],
+    };
+    let sum = this.calculatePrioritiesSum();
+    for(let i = 0; i<this.state.priority.Bp.length; i++) {
+      let a = (this.state.requirementsQoSCalculated.packageLoss[i]*this.state.priority.Bp[i]*this.state.Pp+
+        this.state.requirementsQoSCalculated.delay[i]*this.state.priority.Bt[i]*this.state.Pt+this.state.requirementsQoSCalculated.jeter[i]*
+        this.state.priority.Bj[i]*this.state.Pj+this.state.requirementsQoSCalculated.bandwidth[i]*this.state.priority.Bc[i]*
+        this.state.Pc)*this.state.requirementsQoSCalculated.probability[i];
+      priorityCalculated.relative.push(a/sum);
+    }
+    priorityCalculated.absolute = this.calculateAbsolutePriorities(priorityCalculated.relative);
+    this.setState({ priorityCalculated });
+  };
+
   handleChangeLoss = (val, rowNum, obj, arr) => {
 
     this.setState(state => {
-      // const newItems = [...state.requirementsQoS.packageLoss];
       const newItems = [...obj];
       newItems[rowNum] = val;
       let requirementsQoS = {...this.state.requirementsQoS};
@@ -64,7 +111,6 @@ class Calculation extends Component {
   handleChangePriority = (val, rowNum, obj, arr) => {
 
     this.setState(state => {
-      // const newItems = [...state.requirementsQoS.packageLoss];
       const newItems = [...obj];
       newItems[rowNum] = val;
       let priority = {...this.state.priority};
@@ -117,12 +163,9 @@ class Calculation extends Component {
     return tempArr;
   };
 
-  calculatePriorities = () => {
-    console.log('calculate2')
-  };
+
 
   render() {
-
     return (
       <div>
         <h1>Calculation here</h1>
@@ -151,7 +194,7 @@ class Calculation extends Component {
                   >
                     <InputNumber
                       value={this.state.requirementsQoS.packageLoss[0]}
-                      style={styles.inputStyle}
+                      styles={styles.inputStyle}
                       onChange={ value => {this.handleChangeLoss(value, 0, this.state.requirementsQoS.packageLoss, 'packageLoss')}}
                     />
                   </FormGroup>
@@ -219,7 +262,6 @@ class Calculation extends Component {
                   >
                     <InputNumber
                       value={this.state.requirementsQoS.packageLoss[1]}
-                      style={{ width: 100 }}
                       onChange={ value => {this.handleChangeLoss(value, 1, this.state.requirementsQoS.packageLoss, 'packageLoss')}}
                     />
                   </FormGroup>
@@ -285,7 +327,6 @@ class Calculation extends Component {
                   >
                     <InputNumber
                       value={this.state.requirementsQoS.packageLoss[2]}
-                      style={{ width: 100 }}
                       onChange={ value => {this.handleChangeLoss(value, 2, this.state.requirementsQoS.packageLoss, 'packageLoss')}}
                     />
                   </FormGroup>
@@ -353,7 +394,6 @@ class Calculation extends Component {
                   >
                     <InputNumber
                       value={this.state.requirementsQoS.packageLoss[3]}
-                      style={{ width: 100 }}
                       onChange={ value => {this.handleChangeLoss(value, 3, this.state.requirementsQoS.packageLoss, 'packageLoss')}}
                     />
                   </FormGroup>
@@ -712,7 +752,7 @@ class Calculation extends Component {
               <Col componentClass={ControlLabel} sm={2}>
                 Pp
               </Col>
-              <Col sm={10}>
+              <Col sm={4}>
                 <InputNumber
                   value={this.state.Pp}
                   style={styles.inputStyle}
@@ -726,7 +766,7 @@ class Calculation extends Component {
               <Col componentClass={ControlLabel} sm={2}>
                 Pt
               </Col>
-              <Col sm={10}>
+              <Col sm={4}>
                 <InputNumber
                   value={this.state.Pt}
                   style={styles.inputStyle}
@@ -740,7 +780,7 @@ class Calculation extends Component {
               <Col componentClass={ControlLabel} sm={2}>
                 Pj
               </Col>
-              <Col sm={10}>
+              <Col sm={4}>
                 <InputNumber
                   value={this.state.Pj}
                   style={styles.inputStyle}
@@ -754,26 +794,18 @@ class Calculation extends Component {
               <Col componentClass={ControlLabel} sm={2}>
                 Pc
               </Col>
-              <Col sm={10}>
+              <Col sm={4}>
                 <InputNumber
                   value={this.state.Pc}
-                  style={styles.inputStyle}
                   placeholder="Відносний коефіцієнт значимості смуги пропускання"
                   onChange={ value => { this.setState({ Pc: value }); }}
                 />
               </Col>
             </FormGroup>
-
-            <FormGroup>
-              <Col smOffset={2} sm={10}>
-                <Button type="submit">Sign in</Button>
-              </Col>
-            </FormGroup>
-
+            <Button type="button" onClick={ this.calculateRelativePriorities }>Calculate2</Button>
           </Form>
 
         </div>
-        <Button type="button" onClick={ this.calculatePriorities }>Calculate2</Button>
 
         <div className='table-container'>
           <h2>Відносний та абсолютний пріоритет сервісів</h2>
@@ -830,7 +862,8 @@ const styles = {
     borderTopWidth: 0,
     outline: 'none',
     boxShadow: 'none',
-    transition: 'all 0.4s ease',
+    border: 'none',
+    // transition: 'all 0.4s ease',
   }
 };
 

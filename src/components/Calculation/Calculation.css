@@ -1,15 +1,25 @@
-.table-input {
+input {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background: #fff none;
+    /*border: 1px solid #ccc;*/
+    transition: border-color ease-in-out .19s,box-shadow ease-in-out .19s;
+
     border-radius: 0;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     outline: none;
     box-shadow: none;
-    transition: all 0.4s ease;
+    /*transition: all 0.4s ease;*/
 }
-.table-input:focus {
-    box-shadow: none;
-    border-bottom-width: 2px;
+input:focus {
+    border-bottom: 2px #66afe9;
+    box-shadow: 0 8px 6px -6px #66afe9;
 }
 .table-form-group {
     margin-bottom: 0px;
