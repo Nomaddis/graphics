@@ -121,13 +121,13 @@ class Calculation extends Component {
     });
   };
 
-  // getValidationState = () => {
-  //   const length = this.state.value.length;
-  //   if (length > 1) return 'success';
-  //   else if (length > 0) return 'warning';
-  //   else if (length > 0) return 'error';
-  //   return null;
-  // };
+  getValidationProbability = () => {
+    const sum = this.state.requirementsQoS.probability.reduce(function(a, b) { return a + b; }, 0);
+    if (sum <= 1) return 'success';
+    else if (sum > 1) return 'warning';
+    // else if (length > 0) return 'error';
+    return null;
+  };
 
   calculateQoSRequirements = () => {
     const requirementsQoSCalculated = {};
@@ -168,7 +168,7 @@ class Calculation extends Component {
   render() {
     return (
       <div>
-        <h1>Calculation here</h1>
+        <h1 style={{textAlign: 'center'}}>Методика пріоритезації трафіку для різних класів користувачів</h1>
         <div className='table-container'>
           <h2>Вимоги до QoS для кожної категорії сервісів</h2>
           <form>
@@ -242,6 +242,7 @@ class Calculation extends Component {
                   <FormGroup
                   controlId="formBasicText"
                   // validationState={this.getValidationState()}
+                  validationState={this.getValidationProbability()}
                   className='table-form-group'
                 >
                   <InputNumber
@@ -307,7 +308,7 @@ class Calculation extends Component {
                 </td>
                 <td><FormGroup
                   controlId="formBasicText"
-                  // validationState={this.getValidationState()}
+                  validationState={this.getValidationProbability()}
                   className='table-form-group'
                 >
                   <InputNumber
@@ -373,7 +374,7 @@ class Calculation extends Component {
                 <td>
                   <FormGroup
                     controlId="formBasicText"
-                    // validationState={this.getValidationState()}
+                    validationState={this.getValidationProbability()}
                     className='table-form-group'
                   >
                     <InputNumber
@@ -440,7 +441,7 @@ class Calculation extends Component {
                 <td>
                   <FormGroup
                     controlId="formBasicText"
-                    // validationState={this.getValidationState()}
+                    validationState={this.getValidationProbability()}
                     className='table-form-group'
                   >
                     <InputNumber
@@ -747,9 +748,10 @@ class Calculation extends Component {
         </div>
 
         <div>
+          <h3>Відносний коефіцієнт значимості параметра відносно інших:</h3>
           <Form horizontal>
             <FormGroup controlId="formHorizontalEmail">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col componentClass={ControlLabel} sm={1}>
                 Pp
               </Col>
               <Col sm={4}>
@@ -763,7 +765,7 @@ class Calculation extends Component {
             </FormGroup>
 
             <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col componentClass={ControlLabel} sm={1}>
                 Pt
               </Col>
               <Col sm={4}>
@@ -777,7 +779,7 @@ class Calculation extends Component {
             </FormGroup>
 
             <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col componentClass={ControlLabel} sm={1}>
                 Pj
               </Col>
               <Col sm={4}>
@@ -791,7 +793,7 @@ class Calculation extends Component {
             </FormGroup>
 
             <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2}>
+              <Col componentClass={ControlLabel} sm={1}>
                 Pc
               </Col>
               <Col sm={4}>
