@@ -10,7 +10,9 @@ class Header extends Component {
         <Navbar inverse collapseOnSelect className="header-navbar">
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#brand">React-Bootstrap</a>
+              <a href="/calculation">
+                <img src='./assets/layers.png' style={{height: '100%'}}/>
+               </a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
