@@ -509,7 +509,7 @@ class Calculation extends Component {
         <hr/>
 
         <div className='table-container'>
-          <h2>Відносний та абсолютний пріоритет сервісів</h2>
+          <h2>Формуємо значимості послуг щодо забезпечення необхідної якості</h2>
           <form>
             <Table responsive>
               <thead>

@@ -146,7 +146,7 @@ class analytics extends Component {
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                 <CartesianGrid strokeDasharray="3 3"/>
                 <XAxis dataKey="name" label={{ value: "Users", position: 'insideBottomRight', offset: 0 }}/>
-                <YAxis label={{ value: "t", position: 'insideLeft' }}/>
+                <YAxis label={{ value: "t, ms", position: 'insideLeft', angle: -90 }}/>
                 <Tooltip/>
                 <Legend />
                 <Bar dataKey="ms" fill="#8884d8" >
@@ -166,8 +166,8 @@ class analytics extends Component {
               <BarChart width={550} height={300} data={this.state.PData}
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                 <CartesianGrid strokeDasharray="3 3"/>
-                <XAxis dataKey="name" label={{ value: "Users", position: 'insideBottomRight', offset: 0 }}/>
-                <YAxis label={{ value: "p", position: 'insideLeft' }}/>
+                <XAxis dataKey="name" label={{ value: "Users", position: 'insideBottomRight', offset: 0}}/>
+                <YAxis label={{ value: "p, %", position: 'insideLeft', angle: -90 }}/>
                 <Tooltip/>
                 <Legend />
                 <Bar dataKey="p" fill="#8884d8" >
@@ -194,7 +194,7 @@ class analytics extends Component {
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                 <CartesianGrid strokeDasharray="3 3"/>
                 <XAxis dataKey="name" label={{ value: "Users", position: 'insideBottomRight', offset: 0 }}/>
-                <YAxis label={{ value: "j", position: 'insideLeft' }}/>
+                <YAxis label={{ value: "j, ms", position: 'insideLeft', angle: -90 }}/>
                 <Tooltip/>
                 <Legend />
                 <Bar dataKey="ms" fill="#8884d8">
@@ -211,7 +211,7 @@ class analytics extends Component {
             <Button bsStyle="primary" onClick={this.handleShow}>
               More details
             </Button>
-            <Button bsStyle="primary" onClick={() => {
+            <Button bsStyle="primary" style={{marginLeft: 10}} onClick={() => {
               this.filterTimeData();
               this.filterPDataData();
               this.filterJDataData();

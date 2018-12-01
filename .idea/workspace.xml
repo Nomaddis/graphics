@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5af6d9dc-fc69-414e-9c15-3ff6297f56a5" name="Default Changelist" comment="Add second calculation">
-      <change afterPath="$PROJECT_DIR$/src/components/QsAnalytics/Analytics.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/QsAnalytics/modalGraphic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
+    <list default="true" id="5af6d9dc-fc69-414e-9c15-3ff6297f56a5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/components/Calculation/Calculation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calculation/Calculation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +40,7 @@
         <counts>
           <entry key="css" value="273" />
           <entry key="html" value="17" />
-          <entry key="js" value="5894" />
+          <entry key="js" value="5984" />
           <entry key="json" value="13" />
           <entry key="txt" value="255" />
         </counts>
@@ -54,7 +50,7 @@
           <entry key="CSS" value="273" />
           <entry key="HTML" value="17" />
           <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="5894" />
+          <entry key="JavaScript" value="5984" />
           <entry key="PLAIN_TEXT" value="255" />
         </counts>
       </usages-collector>
@@ -100,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Calculation/Calculation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11434">
-              <caret line="151" column="29" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
+            <state relative-caret-position="105">
+              <caret line="511" column="76" selection-start-line="511" selection-start-column="76" selection-end-line="511" selection-end-column="76" />
               <folding>
                 <element signature="e#104#131#0" expanded="true" />
               </folding>
@@ -124,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Header/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="23" column="54" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="54" />
+            <state relative-caret-position="414">
+              <caret line="23" column="56" lean-forward="true" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -133,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="251" column="60" lean-forward="true" selection-start-line="251" selection-start-column="60" selection-end-line="251" selection-end-column="60" />
+            <state relative-caret-position="234">
+              <caret line="153" column="47" selection-start-line="153" selection-start-column="47" selection-end-line="153" selection-end-column="47" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#309#2819#0" />
@@ -219,10 +215,10 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/Header/Header.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/Calculation/Calculation.js" />
         <option value="$PROJECT_DIR$/src/components/QsAnalytics/modalGraphic.js" />
         <option value="$PROJECT_DIR$/src/components/QsAnalytics/Analytics.css" />
         <option value="$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js" />
+        <option value="$PROJECT_DIR$/src/components/Calculation/Calculation.js" />
       </list>
     </option>
   </component>
@@ -411,7 +407,7 @@
       <workItem from="1542899857672" duration="6687000" />
       <workItem from="1543143635092" duration="16200000" />
       <workItem from="1543223591260" duration="31000" />
-      <workItem from="1543680595747" duration="16324000" />
+      <workItem from="1543680595747" duration="17108000" />
     </task>
     <task id="LOCAL-00001" summary="small fix">
       <created>1542569559185</created>
@@ -490,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543176732077</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add second calculation">
+      <created>1543698036416</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1543698036416</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74183000" />
+    <option name="totallyTimeSpent" value="74967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -539,7 +542,8 @@
     <MESSAGE value="0.9 working version" />
     <MESSAGE value="0.91 working version" />
     <MESSAGE value="0.92 working version. add favicon" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.92 working version. add favicon" />
+    <MESSAGE value="Add second calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add second calculation" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/components/Publishing/Publishing.js">
@@ -635,30 +639,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Header/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="23" column="54" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/recharts/es6/cartesian/Bar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Calculation/Calculation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11434">
-          <caret line="151" column="29" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
-          <folding>
-            <element signature="e#104#131#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,15 +687,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Header/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="56" lean-forward="true" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="251" column="60" lean-forward="true" selection-start-line="251" selection-start-column="60" selection-end-line="251" selection-end-column="60" />
+        <state relative-caret-position="234">
+          <caret line="153" column="47" selection-start-line="153" selection-start-column="47" selection-end-line="153" selection-end-column="47" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#309#2819#0" />
             <element signature="e#886#1415#0" />
             <element signature="e#792#1012#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Calculation/Calculation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="511" column="76" selection-start-line="511" selection-start-column="76" selection-end-line="511" selection-end-column="76" />
+          <folding>
+            <element signature="e#104#131#0" expanded="true" />
           </folding>
         </state>
       </provider>
