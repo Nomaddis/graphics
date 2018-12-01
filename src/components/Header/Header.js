@@ -21,6 +21,9 @@ class Header extends Component {
               <NavItem eventKey={1} href="/calculation">
                 Calculation
               </NavItem>
+              <NavItem eventKey={2} href="/qsAnalytics">
+                Calculation2
+              </NavItem>
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                 <MenuItem eventKey={3.1}  componentClass='span' >
                   <Link to="/">Simulation of communication parameters</Link>

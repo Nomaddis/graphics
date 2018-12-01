@@ -1,0 +1,17 @@
+.graphic-container-modal {
+    position: relative;
+}
+.graphic-modal-labels {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 0px 100px;
+}
+.label-container {
+    text-align: right;
+}
+.modal-label {
+    display: block;
+}
