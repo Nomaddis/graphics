@@ -168,7 +168,7 @@ class Calculation extends Component {
   render() {
     return (
       <div>
-        <h1 style={{textAlign: 'center'}}>Методика пріоритезації трафіку для різних класів користувачів</h1>
+        <h1 style={{textAlign: 'center'}}>Методика пріоритезація трафіку для різних класів користувачів</h1>
         <div className='table-container'>
           <h2>Вимоги до QoS для кожної категорії сервісів</h2>
           <form>
