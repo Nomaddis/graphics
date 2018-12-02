@@ -40,9 +40,9 @@
         <counts>
           <entry key="css" value="296" />
           <entry key="html" value="17" />
-          <entry key="js" value="7318" />
+          <entry key="js" value="7593" />
           <entry key="json" value="13" />
-          <entry key="txt" value="274" />
+          <entry key="txt" value="281" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -50,8 +50,8 @@
           <entry key="CSS" value="296" />
           <entry key="HTML" value="17" />
           <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="7318" />
-          <entry key="PLAIN_TEXT" value="274" />
+          <entry key="JavaScript" value="7593" />
+          <entry key="PLAIN_TEXT" value="281" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -99,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Calculation/Calculation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="149" column="33" lean-forward="true" selection-start-line="149" selection-start-column="33" selection-end-line="149" selection-end-column="33" />
+            <state relative-caret-position="-11667">
+              <caret line="193" column="19" lean-forward="true" selection-start-line="193" selection-start-column="19" selection-end-line="193" selection-end-column="19" />
               <folding>
                 <element signature="e#104#131#0" expanded="true" />
               </folding>
@@ -132,12 +132,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="956" column="90" selection-start-line="956" selection-start-column="90" selection-end-line="956" selection-end-column="90" />
+            <state relative-caret-position="351">
+              <caret line="993" column="91" selection-start-line="993" selection-start-column="91" selection-end-line="993" selection-end-column="91" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#886#1415#0" />
-                <element signature="e#792#1012#0" />
+                <element signature="e#2472#2791#0" />
+                <element signature="e#2818#3137#0" />
+                <element signature="e#3165#3487#0" />
+                <element signature="e#3453#3775#0" />
                 <element signature="e#2782#39334#0" />
               </folding>
             </state>
@@ -196,6 +198,7 @@
       <find>forEa</find>
       <find>{</find>
       <find>plotOptions</find>
+      <find>ріор</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -216,8 +219,8 @@
         <option value="$PROJECT_DIR$/src/components/Header/Header.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/QsAnalytics/modalGraphic.js" />
-        <option value="$PROJECT_DIR$/src/components/Calculation/Calculation.js" />
         <option value="$PROJECT_DIR$/src/components/QsAnalytics/Analytics.css" />
+        <option value="$PROJECT_DIR$/src/components/Calculation/Calculation.js" />
         <option value="$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js" />
       </list>
     </option>
@@ -413,7 +416,7 @@
       <workItem from="1542899857672" duration="6687000" />
       <workItem from="1543143635092" duration="16200000" />
       <workItem from="1543223591260" duration="31000" />
-      <workItem from="1543680595747" duration="29344000" />
+      <workItem from="1543680595747" duration="33874000" />
     </task>
     <task id="LOCAL-00001" summary="small fix">
       <created>1542569559185</created>
@@ -527,11 +530,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543768353657</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fix modal graphic">
+      <created>1543783568910</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1543783568910</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix text">
+      <created>1543783770622</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1543783770622</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87203000" />
+    <option name="totallyTimeSpent" value="91733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -578,7 +595,8 @@
     <MESSAGE value="0.92 working version. add favicon" />
     <MESSAGE value="Add second calculation" />
     <MESSAGE value="Fix modal graphic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix modal graphic" />
+    <MESSAGE value="Fix text" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix text" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/components/Publishing/Publishing.js">
@@ -708,16 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Calculation/Calculation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="149" column="33" lean-forward="true" selection-start-line="149" selection-start-column="33" selection-end-line="149" selection-end-column="33" />
-          <folding>
-            <element signature="e#104#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Calculation/Calculation.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -742,14 +750,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Calculation/Calculation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11667">
+          <caret line="193" column="19" lean-forward="true" selection-start-line="193" selection-start-column="19" selection-end-line="193" selection-end-column="19" />
+          <folding>
+            <element signature="e#104#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/QsAnalytics/Analytics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="956" column="90" selection-start-line="956" selection-start-column="90" selection-end-line="956" selection-end-column="90" />
+        <state relative-caret-position="351">
+          <caret line="993" column="91" selection-start-line="993" selection-start-column="91" selection-end-line="993" selection-end-column="91" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#886#1415#0" />
-            <element signature="e#792#1012#0" />
+            <element signature="e#2472#2791#0" />
+            <element signature="e#2818#3137#0" />
+            <element signature="e#3165#3487#0" />
+            <element signature="e#3453#3775#0" />
             <element signature="e#2782#39334#0" />
           </folding>
         </state>

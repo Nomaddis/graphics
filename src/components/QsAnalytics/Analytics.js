@@ -19,7 +19,7 @@ const timeData = [
   {name: 4, ms: getRandomInt(150, 200)},// good
   {name: 5, ms: getRandomInt(50, 150)},// very well
   {name: 6, ms: getRandomInt(150, 200)},// good
-  {name: 7, ms: getRandomInt(201, 301)},// bad
+  {name: 7, ms: 215},// bad
   {name: 8, ms: getRandomInt(150, 200)},// good
   {name: 9, ms: getRandomInt(150, 200)},// good
   {name: 10, ms: getRandomInt(150, 200)},// good
@@ -32,7 +32,7 @@ const PData = [
   {name: 4, p: getRandomFloatmin(0.1, 0.9)},// good
   {name: 5, p: getRandomFloatmin(0.02, 0.1)},// very well
   {name: 6, p: getRandomFloatmin(0.1, 0.9)},// good
-  {name: 7, p: getRandomFloatmin(1.1, 2.1)},
+  {name: 7, p: 1.25},
   {name: 8, p: getRandomFloatmin(0.1, 0.9)},// good
   {name: 9, p: getRandomFloatmin(0.1, 0.9)},// good
   {name: 10, p: getRandomFloatmin(0.1, 0.9)},// good
@@ -44,11 +44,12 @@ const JData = [
   {name: 4, ms: getRandomInt(21, 49)},// good
   {name: 5, ms: getRandomInt(1, 19)},// very well
   {name: 6, ms: getRandomInt(21, 49)},// good
-  {name: 7, ms: getRandomInt(51, 67)},
+  {name: 7, ms: 56},
   {name: 8, ms: getRandomInt(21, 49)},// good
   {name: 9, ms: getRandomInt(21, 49)},// good
   {name: 10, ms: getRandomInt(21, 49)},// good
 ];
+
 const filteredData = [
   {name: 0, QoS: 5},
   {name: 0.1324, QoS: 4.8956},
@@ -99,6 +100,20 @@ const filteredData4 = [
   {name: 0.4, QoS: 2.2},
   {name: 0.4054, QoS: 1.4},
   {name: 0.50223, QoS: 0.8},
+  {name: 0.6, QoS: 0.45},
+  {name: 0.60345, QoS: 0.25},
+  {name: 0.7022, QoS: 0.1},
+  {name: 0.8, QoS: 0.005},
+];
+
+const filteredData5 = [
+  {name: 0, QoS: 5},
+  {name: 0.1324, QoS: 4.8956},
+  {name: 0.2, QoS: 4.2623, QoS2: 4.2623},
+  {name: 0.30635, QoS: 3.1985, QoS2: 3.1985},
+  {name: 0.4, QoS: 2.2},
+  {name: 0.4054, QoS: 1.4, QoS2: 1.4},
+  {name: 0.50223, QoS: 0.8, QoS2: 0.8},
   {name: 0.6, QoS: 0.45},
   {name: 0.60345, QoS: 0.25},
   {name: 0.7022, QoS: 0.1},
@@ -736,11 +751,83 @@ class analytics extends Component {
       JData: JData,
       dataFreq: dataFreq,
       filteredData: filteredData,
+      isDisableMethod1Btn: false,
+      isDisableMethod2Btn: false,
+      isDisableMethod3Btn: false,
     };
   }
 
   handleShow() {
     this.setState({ show: true });
+  }
+
+  method1= () => {
+    let timeData = this.state.timeData;
+    let PData = this.state.PData;
+    let JData = this.state.JData;
+    PData.forEach((item, i) => {
+      if(i === 6) {
+        PData[i] = {name: item.name, p: item.p - 0.2};
+      }
+    });
+    timeData.forEach((item, i) => {
+      if(i === 6) {
+        timeData[i] = { name: item.name, ms: item.ms - 10};
+      }
+    });
+    JData.forEach((item, i) => {
+      if(i === 6) {
+        JData[i] = { name: item.name, ms: item.ms - 4};
+      }
+    });
+
+    this.setState({ PData, timeData, JData, isDisableMethod1Btn: true });
+  }
+
+  method2= () => {
+    let timeData = this.state.timeData;
+    let PData = this.state.PData;
+    let JData = this.state.JData;
+    PData.forEach((item, i) => {
+      if(i === 6) {
+        PData[i] = {name: item.name, p: item.p - 0.3};
+      }
+    });
+    timeData.forEach((item, i) => {
+      if(i === 6) {
+        timeData[i] = { name: item.name, ms: item.ms - 10};
+      }
+    });
+    JData.forEach((item, i) => {
+      if(i === 6) {
+        JData[i] = { name: item.name, ms: item.ms - 4};
+      }
+    });
+
+    this.setState({ PData, timeData, JData, isDisableMethod2Btn: true });
+  }
+
+  method3= () => {
+    let timeData = this.state.timeData;
+    let PData = this.state.PData;
+    let JData = this.state.JData;
+    PData.forEach((item, i) => {
+      if(i === 6) {
+        PData[i] = {name: item.name, p: item.p - 0.7};
+      }
+    });
+    timeData.forEach((item, i) => {
+      if(i === 6) {
+        timeData[i] = { name: item.name, ms: item.ms - 100};
+      }
+    });
+    JData.forEach((item, i) => {
+      if(i === 6) {
+        JData[i] = { name: item.name, ms: item.ms - 30};
+      }
+    });
+
+    this.setState({ PData, timeData, JData, isDisableMethod3Btn: true });
   }
 
   filterTimeData = () => {
@@ -799,6 +886,12 @@ class analytics extends Component {
     })
   }
 
+  changeModal4 = () => {
+    this.setState({
+      filteredData: filteredData5,
+    })
+  }
+
   changeModalDefault = () => {
     this.setState({
       filteredData: filteredData,
@@ -853,7 +946,7 @@ class analytics extends Component {
                 <Bar dataKey="ms" fill="#8884d8">
                   {
                     timeData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.ms > 200 ? '#a01313' : entry.ms < 200 && entry.ms > 150 ? "#dac525" : "#2ca02c"}/>
+                      <Cell key={`cell-${index}`} fill={entry.ms > 200 ? '#a01313' : entry.ms <= 200 && entry.ms > 150 ? "#dac525" : "#2ca02c"}/>
                     ))
                   }
                 </Bar>
@@ -911,16 +1004,19 @@ class analytics extends Component {
         <div className='row'>
 
           <div className="col-md-6">
-            <Button bsStyle="primary" onClick={this.handleShow}>
+            <Button bsStyle="info" onClick={this.handleShow}>
               More details
             </Button>
-            <Button bsStyle="primary" style={{marginLeft: 10}} onClick={() => {
+            <Button bsStyle="info" style={{marginLeft: 10}} onClick={() => {
               this.filterTimeData();
               this.filterPDataData();
               this.filterJDataData();
             }}>
               Filter
             </Button>
+            <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method1} disabled={this.state.isDisableMethod1Btn}>Метод 1</Button>
+            <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method2} disabled={this.state.isDisableMethod2Btn}>Метод 2</Button>
+            <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method3} disabled={this.state.isDisableMethod3Btn}>Метод 3</Button>
           </div>
         </div>
 
@@ -948,13 +1044,14 @@ class analytics extends Component {
                   <CartesianGrid strokeDasharray="3 3"/>
                   <Tooltip/>
                   <Line type="monotone" dataKey="QoS" stroke="#8884d8" activeDot={{r: 7}}/>
-                  <Line type="monotone" dataKey="QoS2" stroke="red" activeDot={{r: 13}} dot={{ stroke: 'red', strokeWidth: 9 }}/>
+                  <Line type="monotone" dataKey="QoS2" stroke="#8884d8" activeDot={{r: 13}} dot={{ stroke: 'red', strokeWidth: 9 }}/>
                 </LineChart>
                 <div className='modal-graphic-btn'>
                   <div>
                     <Button onClick={this.changeModal} bsStyle="primary myToggle">Метод 1</Button>
                     <Button onClick={this.changeModal2} bsStyle="primary myToggle">Метод 2</Button>
                     <Button onClick={this.changeModal3} bsStyle="primary myToggle">Метод 3</Button>
+                    <Button onClick={this.changeModal4} bsStyle="primary myToggle">Метод 4</Button>
                   </div>
                   <Button onClick={this.changeModalDefault} bsStyle="warning">Reset</Button>
                 </div>
