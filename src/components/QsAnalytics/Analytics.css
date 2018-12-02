@@ -15,3 +15,10 @@
 .modal-label {
     display: block;
 }
+.myToggle {
+    margin-right: 15px;
+}
+.modal-graphic-btn {
+    display: flex;
+    justify-content: space-between;
+}

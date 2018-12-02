@@ -54,6 +54,48 @@ const filteredData = [
   {name: 0.1324, QoS: 4.8956},
   {name: 0.2, QoS: 4.2623},
   {name: 0.30635, QoS: 3.1985},
+  {name: 0.4, QoS: 2.2,},
+  {name: 0.4054, QoS: 1.4},
+  {name: 0.50223, QoS: 0.8, QoS2: 0.8},
+  {name: 0.6, QoS: 0.45},
+  {name: 0.60345, QoS: 0.25},
+  {name: 0.7022, QoS: 0.1},
+  {name: 0.8, QoS: 0.005},
+];
+
+const filteredData2 = [
+  {name: 0, QoS: 5},
+  {name: 0.1324, QoS: 4.8956},
+  {name: 0.2, QoS: 4.2623},
+  {name: 0.30635, QoS: 3.1985},
+  {name: 0.4, QoS: 2.2},
+  {name: 0.4054, QoS: 1.4, QoS2: 1.4},
+  {name: 0.50223, QoS: 0.8},
+  {name: 0.6, QoS: 0.45},
+  {name: 0.60345, QoS: 0.25},
+  {name: 0.7022, QoS: 0.1},
+  {name: 0.8, QoS: 0.005},
+];
+
+const filteredData3 = [
+  {name: 0, QoS: 5},
+  {name: 0.1324, QoS: 4.8956},
+  {name: 0.2, QoS: 4.2623},
+  {name: 0.30635, QoS: 3.1985, QoS2: 3.1985},
+  {name: 0.4, QoS: 2.2},
+  {name: 0.4054, QoS: 1.4},
+  {name: 0.50223, QoS: 0.8},
+  {name: 0.6, QoS: 0.45},
+  {name: 0.60345, QoS: 0.25},
+  {name: 0.7022, QoS: 0.1},
+  {name: 0.8, QoS: 0.005},
+];
+
+const filteredData4 = [
+  {name: 0, QoS: 5},
+  {name: 0.1324, QoS: 4.8956},
+  {name: 0.2, QoS: 4.2623, QoS2: 4.2623},
+  {name: 0.30635, QoS: 3.1985},
   {name: 0.4, QoS: 2.2},
   {name: 0.4054, QoS: 1.4},
   {name: 0.50223, QoS: 0.8},
@@ -693,6 +735,7 @@ class analytics extends Component {
       PData: PData,
       JData: JData,
       dataFreq: dataFreq,
+      filteredData: filteredData,
     };
   }
 
@@ -738,6 +781,28 @@ class analytics extends Component {
 
   handleHide() {
     this.setState({ show: false });
+  }
+
+  changeModal = () => {
+    this.setState({
+      filteredData: filteredData2,
+    })
+  }
+  changeModal2 = () => {
+    this.setState({
+      filteredData: filteredData3,
+    })
+  }
+  changeModal3 = () => {
+    this.setState({
+      filteredData: filteredData4,
+    })
+  }
+
+  changeModalDefault = () => {
+    this.setState({
+      filteredData: filteredData,
+    })
   }
 
 
@@ -876,15 +941,23 @@ class analytics extends Component {
             </Modal.Header>
             <Modal.Body>
               <div className='graphic-container graphic-container-modal'>
-                <LineChart width={800} height={300} data={filteredData}
+                <LineChart width={800} height={300} data={this.state.filteredData}
                            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                   <XAxis dataKey="name" label={{ value: "QoS", position: 'insideBottomRight', offset: 0 }}/>
                   <YAxis label={{ value: "QoE", position: 'insideLeft', angle: -90 }}/>
                   <CartesianGrid strokeDasharray="3 3"/>
                   <Tooltip/>
-                  <Legend />
-                  <Line type="monotone" dataKey="QoS" stroke="#8884d8" activeDot={{r: 8}}/>
+                  <Line type="monotone" dataKey="QoS" stroke="#8884d8" activeDot={{r: 7}}/>
+                  <Line type="monotone" dataKey="QoS2" stroke="red" activeDot={{r: 13}} dot={{ stroke: 'red', strokeWidth: 9 }}/>
                 </LineChart>
+                <div className='modal-graphic-btn'>
+                  <div>
+                    <Button onClick={this.changeModal} bsStyle="primary myToggle">Toggle1</Button>
+                    <Button onClick={this.changeModal2} bsStyle="primary myToggle">Toggle2</Button>
+                    <Button onClick={this.changeModal3} bsStyle="primary myToggle">Toggle3</Button>
+                  </div>
+                  <Button onClick={this.changeModalDefault} bsStyle="warning">Reset</Button>
+                </div>
                 {/*<div className='graphic-modal-labels'>*/}
                   {/*<div className="label-container">*/}
                     {/*<span className="modal-label">Користувачі дуже задоволені</span>*/}
