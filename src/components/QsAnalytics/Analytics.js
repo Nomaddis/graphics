@@ -785,7 +785,7 @@ class analytics extends Component {
                 <XAxis dataKey="name" label={{ value: "Users", position: 'insideBottomRight', offset: 0 }}/>
                 <YAxis label={{ value: "t, ms", position: 'insideLeft', angle: -90 }}/>
                 <Tooltip/>
-                <Bar dataKey="ms" fill="#8884d8" label={{ position: 'top' }}>
+                <Bar dataKey="ms" fill="#8884d8">
                   {
                     timeData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.ms > 200 ? '#a01313' : entry.ms < 200 && entry.ms > 150 ? "#dac525" : "#2ca02c"}/>
@@ -805,7 +805,7 @@ class analytics extends Component {
                 <XAxis dataKey="name" label={{ value: "Users", position: 'insideBottomRight', offset: 0}}/>
                 <YAxis label={{ value: "p, %", position: 'insideLeft', angle: -90 }}/>
                 <Tooltip/>
-                <Bar dataKey="p" fill="#8884d8"  label={{ position: 'top' }}>
+                <Bar dataKey="p" fill="#8884d8">
                   {
                     PData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.p > 1 ? '#a01313' : entry.p < 1 && entry.p > 0.1 ? "#dac525" : "#2ca02c"}/>
@@ -830,7 +830,7 @@ class analytics extends Component {
                 <XAxis dataKey="name" label={{ value: "Users", position: 'insideBottomRight', offset: 0 }}/>
                 <YAxis label={{ value: "j, ms", position: 'insideLeft', angle: -90 }}/>
                 <Tooltip/>
-                <Bar dataKey="ms" fill="#8884d8"  label={{ position: 'top' }}>
+                <Bar dataKey="ms" fill="#8884d8">
                   {
                     JData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.ms > 50 ? '#a01313' : entry.ms < 50 && entry.ms > 20 ? "#dac525" : "#2ca02c"}/>
