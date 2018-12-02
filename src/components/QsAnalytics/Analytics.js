@@ -952,9 +952,9 @@ class analytics extends Component {
                 </LineChart>
                 <div className='modal-graphic-btn'>
                   <div>
-                    <Button onClick={this.changeModal} bsStyle="primary myToggle">Toggle1</Button>
-                    <Button onClick={this.changeModal2} bsStyle="primary myToggle">Toggle2</Button>
-                    <Button onClick={this.changeModal3} bsStyle="primary myToggle">Toggle3</Button>
+                    <Button onClick={this.changeModal} bsStyle="primary myToggle">Метод 1</Button>
+                    <Button onClick={this.changeModal2} bsStyle="primary myToggle">Метод 2</Button>
+                    <Button onClick={this.changeModal3} bsStyle="primary myToggle">Метод 3</Button>
                   </div>
                   <Button onClick={this.changeModalDefault} bsStyle="warning">Reset</Button>
                 </div>
