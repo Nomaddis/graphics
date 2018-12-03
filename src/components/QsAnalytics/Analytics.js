@@ -922,10 +922,10 @@ class analytics extends Component {
                 <XAxis dataKey="name" label={{ value: "Час, сек", position: 'insideBottomRight', offset: 0 }}/>
                 <YAxis label={{ value: "пак/с", position: 'insideLeft', angle: -90 }}/>
                 <Tooltip/>
-                <Area type='monotone' dataKey='IPTVm' stackId="1" stroke='#8884d8' fill='#8884d8' />
-                <Area type='monotone' dataKey='web' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
                 <Area type='monotone' dataKey='VoIP' stackId="1" stroke='#34e174' fill='#34e174' />
                 <Area type='monotone' dataKey='VoD' stackId="1" stroke='#e1a534' fill='#e1a534' />
+                <Area type='monotone' dataKey='web' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
+                <Area type='monotone' dataKey='IPTVm' stackId="1" stroke='#8884d8' fill='#8884d8' />
                 <Brush style={{marginTop: 10}}/>
                 <Legend iconSize={10} layout='vertical' verticalAlign='middle' wrapperStyle={style}/>
               </AreaChart>
