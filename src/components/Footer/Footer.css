@@ -1,0 +1,14 @@
+.footer {
+    background-color: #101010;
+}
+.footer-inner {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    padding: 20px 0;
+}
+.footer-contacts-wrap {
+    text-align: center;
+    color: white;
+}
