@@ -22,3 +22,6 @@
     display: flex;
     justify-content: space-between;
 }
+.bottom-buttons {
+    margin-bottom: 25px;
+}

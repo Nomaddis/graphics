@@ -12,9 +12,19 @@
   line-height: 20px;
 }
 
-.nav li>a {
+.nav li a {
   font-size: 18px;
 }
+.dropdown-link {
+  color: #333;
+  white-space: nowrap;
+}
+
+.dropdown-link:hover {
+  color: #333;
+  text-decoration: none;
+}
+
 
 /*graphics pages*/
 .graphic-control {

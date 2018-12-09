@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Navbar from "react-bootstrap/es/Navbar";
 import {MenuItem, Nav, NavDropdown, NavItem} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import '../../App.css';
 
 class Header extends Component {
   render() {
@@ -25,15 +26,17 @@ class Header extends Component {
                 Calculation2
               </NavItem>
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}  componentClass='span' >
-                  <Link to="/">Simulation of communication parameters</Link>
+                <MenuItem eventKey={3.1}>
+                  <Link to="/" className="dropdown-link">Simulation of communication parameters</Link>
                 </MenuItem>
-                <MenuItem eventKey={3.2}  componentClass='span' >
-                  <Link to="/experiment1">simulation of other things</Link>
+                <MenuItem eventKey={3.2}>
+                  <Link to="/experiment1" className="dropdown-link">Simulation of other things</Link>
                 </MenuItem>
-                <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                <MenuItem divider />
-                <MenuItem eventKey={3.3}>Separated link</MenuItem>
+                <MenuItem eventKey={3.3} className="dropdown-link">
+                  <Link to="/excelimport" className="dropdown-link">Import excel and build graphic</Link>
+                </MenuItem>
+                {/*<MenuItem divider />*/}
+                {/*<MenuItem eventKey={3.3}>Separated link</MenuItem>*/}
               </NavDropdown>
             </Nav>
             <Nav pullRight>

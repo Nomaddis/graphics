@@ -1001,25 +1001,27 @@ class analytics extends Component {
 
         </div>
 
-        <div className='row'>
 
-          <div className="col-md-6">
-            <Button bsStyle="info" onClick={this.handleShow}>
-              More details
-            </Button>
-            <Button bsStyle="info" style={{marginLeft: 10}} onClick={() => {
-              this.filterTimeData();
-              this.filterPDataData();
-              this.filterJDataData();
-            }}>
-              Filter
-            </Button>
-            <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method1} disabled={this.state.isDisableMethod1Btn}>Метод 1</Button>
-            <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method2} disabled={this.state.isDisableMethod2Btn}>Метод 2</Button>
-            <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method3} disabled={this.state.isDisableMethod3Btn}>Метод 3</Button>
+
+        <div className="bottom-buttons">
+          <div className='row'>
+            <div className="col-md-6">
+              <Button bsStyle="info" onClick={this.handleShow}>
+                More details
+              </Button>
+              <Button bsStyle="info" style={{marginLeft: 10}} onClick={() => {
+                this.filterTimeData();
+                this.filterPDataData();
+                this.filterJDataData();
+              }}>
+                Filter
+              </Button>
+              <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method1} disabled={this.state.isDisableMethod1Btn}>Метод 1</Button>
+              <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method2} disabled={this.state.isDisableMethod2Btn}>Метод 2</Button>
+              <Button bsStyle="primary" style={{marginLeft: 10}} onClick={this.method3} disabled={this.state.isDisableMethod3Btn}>Метод 3</Button>
+            </div>
           </div>
         </div>
-
 
         <div>
           <Modal

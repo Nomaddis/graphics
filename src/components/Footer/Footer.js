@@ -11,7 +11,7 @@ class Footer extends Component {
                 <div className="footer-contacts-wrap">
                   <div><span>Національний університет "Львівська політехніка"</span></div>
                   <div><span>Інститут телекомунікацій електроніки та електронної техніки</span></div>
-                  <div><span>Кафедра телекомунікацій</span></div>
+                  <div><span>Кафедра "Телекомунікації"</span></div>
                 </div>
               </div>
             </div>
